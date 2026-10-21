@@ -1,0 +1,15 @@
+# package directories
+node_modules
+jspm_packages
+
+# Serverless directories
+.serverless
+
+# esbuild directories
+.esbuild
+.env
+.vscode
+reports
+plop-templates/*
+cdk.out/*
+lib/*

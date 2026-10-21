@@ -1,0 +1,47 @@
+
+/**
+ * Calls a function with the specified parameters.
+ *
+ * @param additionalChoiceParam A map of additional choice parameters (optional).
+ * @param nodeVersion The version of Node.js to use (default is 20).
+ * @param isTeamEnvironment Indicates whether the environment is team-specific (default is false) [e.g., ee-01, wa-01, etc].
+ *
+ * Example: Call this function as below:
+ * NodeJSServerlessPipeline(additionalChoiceParam, '20', false)
+ */
+
+
+
+@Library('wf-jenkins-lib') _
+
+Map<String, Map<String, Object>> additionalChoiceParam = [
+    'SSM_CACHE_SSM_PATH': [
+          name: 'SSM_CACHE_SSM_PATH',
+          description: 'SSM path to redis config for ssm caching, relative to stage root',
+          choices: ['common/ssm-cache']
+    ],
+    'SSM_PARAM_CACHING': [
+          name: 'SSM_PARAM_CACHING',
+          booleanParam: true,
+          description: 'should ssm params be cached',
+          defaultValue: true
+    ],
+    'ALERTS_SNS_ARN_SSM_PATH': [
+          name: 'ALERTS_SNS_ARN_SSM_PATH',
+          description: 'SSM path to alarm sns topic arn, critical or info',
+          choices: ['common/alerts/critical/sns-arn', 'common/alerts/sns-arn']
+    ],
+    'TARGET_ENVIRONMENT': [
+        name: 'TARGET_ENVIRONMENT',
+        description: 'target environment',
+        choices: ['dev', 'qa', 'integration', 'preprod_uk', 'prod_uk', 'prod_us', 'pre_prod_legacy']
+    ],
+    'SNS_TOPIC_ARN': [
+        name: 'SNS_TOPIC_ARN',
+        description: 'sns topic name',
+        choices: ['firmware-test']
+    ]
+]
+
+
+NodeJSServerlessPipeline(additionalChoiceParam, '20', false)

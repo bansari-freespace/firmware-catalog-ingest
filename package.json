@@ -1,0 +1,28 @@
+{
+  "name": "firmware-catalog-ingest",
+  "version": "1.0.0",
+  "description": "Ingests Gen4 firmware releases into the firmware catalog",
+  "scripts": {
+    "build": "wf-cdk diff",
+    "deploy": "wf-cdk deploy",
+    "synth": "wf-cdk synth",
+    "remove": "wf-cdk destroy",
+    "diff": "wf-cdk diff",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "^2.195.0",
+    "wf-cdk": "https://wf-dev-root.s3.ap-south-1.amazonaws.com/ci/artifacts/jobs/wf-cdk-infra/master/11/wf-cdk-1.0.0.tgz",
+    "wf-utils": "https://wf-dev-root.s3.ap-south-1.amazonaws.com/ci/artifacts/jobs/wf-utils-nodejs/sqs_batch/7/wf-utils-2.0.3.tgz"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.137",
+    "@types/node": "^20.12.7",
+    "ts-node": "^10.4.0",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.4.5"
+  }
+}
